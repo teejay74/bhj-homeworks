@@ -17,7 +17,8 @@ buttonPrev.onclick = () => {
 
 for (let i = 0; i < sumImg; i++) {
   sliderDots[i].onclick = () => {
-    showSlide(i);
+  	current = i;
+    showSlide(current);
   };
 }
 
