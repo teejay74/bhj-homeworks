@@ -14,9 +14,18 @@ for (let i = 0; i < mainMenu.length; i++) {
   for (let k = 0; k < itemMenu.length; k++) {
     const subMenu = itemMenu[k].closest("li").querySelector("ul");
     itemMenu[k].onclick = () => {
-      closeMenu(i);
-      subMenu.classList.add("menu_active");
-      return false;
+      
+      if(subMenu.classList.contains("menu_active")) { 
+      	 subMenu.classList.remove("menu_active");
+      	return false;
+  		}
+	  	else {
+	  	  closeMenu(i);
+	      subMenu.classList.add("menu_active");
+	      return false;
+	  	}
+
+	  	
     };
   }
 }
