@@ -6,7 +6,6 @@ class Game {
     this.lossElement = container.querySelector('.status__loss');
 
     this.reset();
-
     this.registerEvents();
   }
 
@@ -16,7 +15,43 @@ class Game {
     this.lossElement.textContent = 0;
   }
 
+  setTimer(n) {
+
+    this.container.querySelector(".status__time").textContent = n;
+    const timer = () => {
+      n -= 1;
+      if(n >= 0) {
+        this.container.querySelector(".status__time").textContent = n;
+      }
+      else {   
+        console.log(timerId);
+        clearInterval(timerId);
+        this.fail();
+      }
+     
+    }
+    let timerId = setInterval(timer, 1000)
+     if(timerId > 1) {
+      clearInterval(timerId-1);
+    }
+  }
+
   registerEvents() {
+    const checkChar = (e) => {
+      let userChar = String.fromCharCode(e.keyCode);
+      if(this.currentSymbol.textContent == userChar.toLowerCase()) {
+        this.success();
+
+           }
+      else {
+      
+        this.fail();
+       
+      }
+
+   }
+    
+    const char = document.addEventListener('keydown', checkChar);
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -38,6 +73,7 @@ class Game {
       this.reset();
     }
     this.setNewWord();
+  
   }
 
   fail() {
@@ -46,12 +82,15 @@ class Game {
       this.reset();
     }
     this.setNewWord();
+  
   }
 
   setNewWord() {
     const word = this.getWord();
-
+    let n = word.length;
     this.renderWord(word);
+    this.setTimer(n);
+
   }
 
   getWord() {
