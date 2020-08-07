@@ -4,12 +4,6 @@ const chatInput = document.getElementById("chat-widget__input")
 const chatContainer = document.querySelector(".chat-widget__messages-container")
 let i = 0; 
 const botMessages = ['yo', 'чё надо?', 'Я устал, я ухожу', 'Денег нет, но вы держитесь', 'Зачем вы пишите, я сплю']                    
-
-
-
-
-
-
 const openChat = (e) => {
 	e.currentTarget.classList.add("chat-widget_active");
 }	
