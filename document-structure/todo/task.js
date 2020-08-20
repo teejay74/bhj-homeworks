@@ -23,7 +23,6 @@ const taskAdd = (task) => {
 	divTask.remove();
 
 	})
-	
 }
 
 //События 
