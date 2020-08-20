@@ -14,6 +14,7 @@ const renderPage = (page) => {
 			answerButton.className = 'poll__anwer';
 			answerButton.textContent = answer;
 			answersDiv.append(answerButton);
+			
 				
 	}
 
