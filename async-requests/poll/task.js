@@ -20,6 +20,13 @@ const renderPage = (page) => {
 
 }
 
+document.addEventListener('click', e => {
+	if(e.target.classList.contains('poll__anwer')) {
+		e.preventDefault();
+        alert('Спасибо, ваш голос засчитан!');
+	}
+})
+
 xhr.addEventListener('load', () => {
 	if(xhr.status == 200) {
 		
@@ -28,5 +35,7 @@ xhr.addEventListener('load', () => {
 })
 
 xhr.send();
+
+
 
 
